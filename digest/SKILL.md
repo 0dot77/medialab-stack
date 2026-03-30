@@ -1,3 +1,8 @@
+---
+name: digest
+description: "Paper and technical document summarizer for media art practice. Use when the user wants to summarize a paper, article, or technical document from a media art perspective. Triggers on /digest or requests to summarize research."
+---
+
 # /digest — Paper & Tech Summarizer
 
 > **Role**: Research assistant

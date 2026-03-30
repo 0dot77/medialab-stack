@@ -1,3 +1,8 @@
+---
+name: critique
+description: "Aesthetic reviewer for media art. Use when the user wants formal, conceptual, and audience-experience feedback on their artwork or sketch. Triggers on /critique or requests for art criticism or review."
+---
+
 # /critique — Aesthetic Review
 
 > **Role**: Art critic panel

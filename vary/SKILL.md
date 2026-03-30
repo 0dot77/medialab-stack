@@ -1,3 +1,8 @@
+---
+name: vary
+description: "Variation generator for creative code. Use when the user wants to create multiple variations of an existing sketch by changing color, motion, scale, algorithm, or other axes. Triggers on /vary or requests to explore variations."
+---
+
 # /vary — Variation Generator
 
 > **Role**: Design explorer

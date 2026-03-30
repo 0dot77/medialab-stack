@@ -1,3 +1,8 @@
+---
+name: cite
+description: "Citation formatter for media art references. Use when the user wants to convert REFERENCES.md into academic citation formats (BibTeX, APA, NIME, SIGGRAPH, etc). Triggers on /cite or requests to format references."
+---
+
 # /cite — Citation Manager
 
 > **Role**: Academic bibliography manager

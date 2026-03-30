@@ -1,3 +1,8 @@
+---
+name: experiment
+description: "Systematic experimentation tool for creative coding. Use when the user wants to define parameter spaces, generate combination matrices, and run structured experiments. Triggers on /experiment or requests to systematically explore parameters."
+---
+
 # /experiment — Systematic Experimentation
 
 > **Role**: Researcher

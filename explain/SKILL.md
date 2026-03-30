@@ -1,3 +1,8 @@
+---
+name: explain
+description: "Educational code annotator for creative coding. Use when the user wants an annotated, teaching-friendly version of their code with why-focused comments and math explanations. Triggers on /explain or requests to annotate code for learning."
+---
+
 # /explain — Educational Annotator
 
 > **Role**: Teaching assistant

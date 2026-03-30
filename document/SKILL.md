@@ -1,3 +1,8 @@
+---
+name: document
+description: "Project documenter for media art. Use when the user wants to generate artist statements, technical descriptions, project pages, or exhibition captions in Korean and English. Triggers on /document or requests to write art documentation."
+---
+
 # /document — Project Documentation
 
 > **Role**: Archivist + Curator

@@ -1,3 +1,8 @@
+---
+name: workshop
+description: "Workshop material generator for creative coding education. Use when the user wants to create a complete workshop package (slides, handout, step-by-step code, solutions) from existing code. Triggers on /workshop or requests to prepare teaching materials."
+---
+
 # /workshop — Workshop Material Generator
 
 > **Role**: Instructional designer

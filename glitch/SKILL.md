@@ -1,3 +1,8 @@
+---
+name: glitch
+description: "Serendipity engine for creative code. Use when the user wants to intentionally break, subvert, or glitch their code to discover unexpected aesthetics. Triggers on /glitch or requests to glitch/break code."
+---
+
 # /glitch — Serendipity Engine
 
 > **Role**: Trickster

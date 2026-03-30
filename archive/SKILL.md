@@ -1,3 +1,8 @@
+---
+name: archive
+description: "Digital archivist for media art projects. Use when the user wants to scan, classify, and catalog their project files into a CATALOG.md. Triggers on /archive or requests to organize project files."
+---
+
 # /archive — Code Organizer
 
 > **Role**: Digital archivist

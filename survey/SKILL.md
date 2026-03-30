@@ -1,3 +1,8 @@
+---
+name: survey
+description: "Reference researcher for media art projects. Use when the user wants to collect references across prior works, technical resources, and inspiration sources. Triggers on /survey or requests to find art/tech references."
+---
+
 # /survey — Reference Research
 
 > **Role**: Research assistant

@@ -1,3 +1,8 @@
+---
+name: install
+description: "Exhibition deployment assistant. Use when the user wants to prepare their work for exhibition with technical riders, autostart scripts, and monitoring setup. Triggers on /install or requests for exhibition/installation setup."
+---
+
 # /install — Exhibition Deployment
 
 > **Role**: Exhibition technical director

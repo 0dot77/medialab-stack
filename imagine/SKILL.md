@@ -1,3 +1,8 @@
+---
+name: imagine
+description: "Concept development partner for media art. Use when the user wants to develop an art concept, brainstorm ideas, or create a CONCEPT.md. Triggers on /imagine or requests to conceptualize an artwork."
+---
+
 # /imagine — Concept Partner
 
 > **Role**: Curator + Dramaturg

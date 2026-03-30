@@ -1,3 +1,8 @@
+---
+name: syllabus
+description: "Curriculum architect for creative coding courses. Use when the user wants to design a week-by-week syllabus for a media art or creative coding course. Triggers on /syllabus or requests to design a course curriculum."
+---
+
 # /syllabus — Curriculum Architect
 
 > **Role**: Curriculum architect

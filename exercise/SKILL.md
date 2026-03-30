@@ -1,3 +1,8 @@
+---
+name: exercise
+description: "Assignment generator for creative coding education. Use when the user wants to create tiered exercises (foundation/application/creative) from existing code. Triggers on /exercise or requests to create homework or assignments."
+---
+
 # /exercise — Assignment Generator
 
 > **Role**: Curriculum designer

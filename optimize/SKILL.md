@@ -1,3 +1,8 @@
+---
+name: optimize
+description: "Performance optimizer for creative coding and installations. Use when the user wants to improve frame rate, memory, or stability of their sketch, with aesthetic impact analysis. Triggers on /optimize or requests to tune performance."
+---
+
 # /optimize — Performance Optimization
 
 > **Role**: Technical artist

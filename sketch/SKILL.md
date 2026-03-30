@@ -1,3 +1,8 @@
+---
+name: sketch
+description: "Rapid creative coding prototyper. Use when the user wants to quickly create a runnable sketch or prototype for media art (p5.js, Processing, openFrameworks, Three.js, etc). Triggers on /sketch or requests to prototype visual/audio ideas."
+---
+
 # /sketch — Rapid Prototyping
 
 > **Role**: Skilled creative coder

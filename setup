@@ -1,0 +1,55 @@
+#!/bin/bash
+set -euo pipefail
+
+# medialab-stack installer
+# Claude Code 스킬 디렉토리에 심볼릭 링크를 생성한다.
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+SKILL_DIR="$HOME/.claude/skills"
+LINK_NAME="medialab-stack"
+
+echo "medialab-stack installer"
+echo "========================"
+echo ""
+
+# Claude Code 스킬 디렉토리 확인/생성
+if [ ! -d "$SKILL_DIR" ]; then
+    echo "Creating skills directory: $SKILL_DIR"
+    mkdir -p "$SKILL_DIR"
+fi
+
+# 기존 링크 확인
+TARGET="$SKILL_DIR/$LINK_NAME"
+if [ -L "$TARGET" ]; then
+    echo "Existing symlink found at $TARGET"
+    echo "  Currently points to: $(readlink "$TARGET")"
+    read -rp "Overwrite? [y/N] " answer
+    if [[ "$answer" =~ ^[Yy]$ ]]; then
+        rm "$TARGET"
+    else
+        echo "Aborted."
+        exit 0
+    fi
+elif [ -e "$TARGET" ]; then
+    echo "Error: $TARGET exists and is not a symlink. Please remove it manually."
+    exit 1
+fi
+
+# 심볼릭 링크 생성
+ln -s "$SCRIPT_DIR" "$TARGET"
+echo "Symlink created: $TARGET -> $SCRIPT_DIR"
+
+echo ""
+echo "Done! medialab-stack is now installed."
+echo ""
+echo "Next steps:"
+echo "  1. In your media art project, add to CLAUDE.md:"
+echo ""
+echo "     # Skills"
+echo "     Use medialab-stack skills from ~/.claude/skills/medialab-stack/"
+echo ""
+echo "  2. Start creating:"
+echo "     /imagine   — Start with a concept"
+echo "     /sketch    — Quick prototype"
+echo "     /vary      — Explore variations"
+echo "     /workshop  — Generate teaching materials"

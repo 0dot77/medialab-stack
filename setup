@@ -2,11 +2,10 @@
 set -euo pipefail
 
 # medialab-stack installer
-# Claude Code 스킬 디렉토리에 심볼릭 링크를 생성한다.
+# SKILL.md가 있는 각 스킬을 개별 심볼릭 링크로 Claude Code 스킬 디렉토리에 등록한다.
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SKILL_DIR="$HOME/.claude/skills"
-LINK_NAME="medialab-stack"
 
 echo "medialab-stack installer"
 echo "========================"
@@ -18,38 +17,59 @@ if [ ! -d "$SKILL_DIR" ]; then
     mkdir -p "$SKILL_DIR"
 fi
 
-# 기존 링크 확인
-TARGET="$SKILL_DIR/$LINK_NAME"
-if [ -L "$TARGET" ]; then
-    echo "Existing symlink found at $TARGET"
-    echo "  Currently points to: $(readlink "$TARGET")"
-    read -rp "Overwrite? [y/N] " answer
-    if [[ "$answer" =~ ^[Yy]$ ]]; then
-        rm "$TARGET"
-    else
-        echo "Aborted."
-        exit 0
+# SKILL.md가 있는 각 디렉토리를 개별 링크로 등록
+installed=0
+skipped=0
+
+for skill_path in "$SCRIPT_DIR"/*/; do
+    [ -f "$skill_path/SKILL.md" ] || continue
+
+    name=$(basename "$skill_path")
+    target="$SKILL_DIR/$name"
+
+    if [ -L "$target" ]; then
+        existing=$(readlink "$target")
+        if [ "$existing" = "$skill_path" ]; then
+            echo "  skip (already linked): $name"
+            skipped=$((skipped + 1))
+            continue
+        fi
+        echo "  Existing symlink: $target -> $existing"
+        read -rp "  Overwrite with medialab-stack/$name? [y/N] " answer
+        if [[ "$answer" =~ ^[Yy]$ ]]; then
+            rm "$target"
+        else
+            echo "  skipped."
+            skipped=$((skipped + 1))
+            continue
+        fi
+    elif [ -e "$target" ]; then
+        echo "  skip (exists, not a symlink): $name"
+        skipped=$((skipped + 1))
+        continue
     fi
-elif [ -e "$TARGET" ]; then
-    echo "Error: $TARGET exists and is not a symlink. Please remove it manually."
-    exit 1
+
+    ln -s "$skill_path" "$target"
+    echo "  linked: $name"
+    installed=$((installed + 1))
+done
+
+# 레거시 단일 링크가 남아있으면 정리
+legacy="$SKILL_DIR/medialab-stack"
+if [ -L "$legacy" ]; then
+    echo ""
+    echo "Removing legacy symlink: $legacy"
+    rm "$legacy"
 fi
 
-# 심볼릭 링크 생성
-ln -s "$SCRIPT_DIR" "$TARGET"
-echo "Symlink created: $TARGET -> $SCRIPT_DIR"
-
 echo ""
-echo "Done! medialab-stack is now installed."
+echo "Done! $installed skills installed, $skipped skipped."
 echo ""
-echo "Next steps:"
-echo "  1. In your media art project, add to CLAUDE.md:"
+echo "Installed skills:"
+for skill_path in "$SCRIPT_DIR"/*/; do
+    [ -f "$skill_path/SKILL.md" ] || continue
+    name=$(basename "$skill_path")
+    echo "  /$name"
+done
 echo ""
-echo "     # Skills"
-echo "     Use medialab-stack skills from ~/.claude/skills/medialab-stack/"
-echo ""
-echo "  2. Start creating:"
-echo "     /imagine   — Start with a concept"
-echo "     /sketch    — Quick prototype"
-echo "     /vary      — Explore variations"
-echo "     /workshop  — Generate teaching materials"
+echo "Restart Claude Code to use the new slash commands."
